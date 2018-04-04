@@ -1,10 +1,20 @@
 <!-- dashboard -->
-<section class="w3-padding-16 w3-row">
-    <div class="w3-padding w3-border w3-round w3-col l2">
+<section class="w3-padding-16 w3-row-padding">
+    <div class="w3-col l2">
+        <div class="w3-padding w3-border w3-round">
         <p style="color: #072d45;font-size: 14px;"><b>Create Invoice / Bill</b></p>
         <button class="w3-button new-button w3-hover-flat-emerald w3-round">+ New</button>
         <p style="color: #f96868;font-size: 12px;">total selling : 000</p>
         <p style="color: #f96868;font-size: 12px;">invoice created : 000</p>
+        </div>
+    </div>
+    <div class="w3-col l2 w3-right">
+        <div class="w3-padding w3-border w3-round ">
+        <p style="color: #072d45;font-size: 14px;"><b>Overdue</b></p>
+        <button class="w3-button w3-yellow w3-round">see all</button>
+        <p style="color: #f96868;font-size: 12px;">total amount : 000</p>
+        <p style="color: #f96868;font-size: 12px;">total clients : 000</p>
+        </div>
     </div>
 </section>
 <section class=" bar-dark-blue w3-round w3-bar">
