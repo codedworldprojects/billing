@@ -1,0 +1,12 @@
+a{ text-decoration: none}
+.name-blue{color: #3084ba!important}
+.button-green{background-color: #46be8a!important;color: #fff!important;}
+.button-hover-green:hover{background-color: #2ecc71!important;color: #fff!important;}
+.sidebar-blue{background-color: #083551!important;color: #7a858f!important;}
+.sidebar-select-blue:hover{color: #c3d7e5!important;}
+.sidebar-c-name-blue{background-color: #092d44!important;color: rgba(255,255,255,0.8)!important;}
+.active-back-blue{background-color: #092d44!important;color: rgba(255,255,255,0.8)!important;border-left: 4px solid #266a95!important;}
+.bar-dark-blue{background-color: #072d45!important;color: #c3d7e5!important;}
+.on-hover-blue:hover{background-color: #266a95!important;}
+.new-button{background-color: #46be8a!important;color: #fff!important;}
+.new-button-hover:hover{background-color: #46be8a!important;color: #fff!important;}
