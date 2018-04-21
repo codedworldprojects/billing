@@ -1,0 +1,18 @@
+insert into producttype values (1,'paint'),(2,'putty'),(3,'thinner');
+
+
+
+insert into cities values(1,'ambikapur'),(2,'durg'),(3,'bhatgaon'),(4,'surajpur');
+
+
+insert into status values(1,'active'),(2,'deactive');
+
+insert into productunit values (1,'kg'),(2,'gm'),(3,'ltr'),(4,'ml');
+
+
+
+insert into CustomerType values(1,'Merchant'),(2,'Customer');
+
+
+
+insert into TransactionType values (1,'purchase'),(2,'sell');

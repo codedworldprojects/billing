@@ -1,0 +1,166 @@
+                                      Insertion
+-----------------------------------------------------------------------------------
+
+
+
+ProductType
+-----------
+CREATE PROCEDURE `sp_insert_ProductType`
+(
+in _ProductType varchar(25)
+)
+
+BEGIN
+
+
+insert into producttype(producttype) values(_ProductType);
+
+commit;
+
+
+END
+
+productdetails
+--------------
+
+CREATE PROCEDURE `sp_insert_ProductDetails`
+(in _ProductTypeId int,
+in _ProductDetails varchar(50)
+
+)
+
+BEGIN
+insert into productdetails(producttypeid,productdetails) values(_ProductTypeId,_ProductDetails);
+
+commit;
+
+
+END
+
+
+productunit
+-----------
+
+CREATE PROCEDURE `sp_insert_productunit`(
+in _productunit varchar(10)
+)
+
+BEGIN
+
+
+insert into productunit(productunit) values(_productunit);
+
+commit;
+
+
+END
+
+productstock
+------------
+
+CREATE PROCEDURE `sp_insert_productstock`
+(
+in _ProductTypeId int,
+in _ProductDetailsId int,
+in _ProductUnitId  int,
+in _ProductUnitPrice  decimal,
+in _ProductQuantity  int
+)
+
+BEGIN
+
+
+insert into productstock(producttypeid,productdetailsid,productunitid,productunitprice,productquantity)
+values(_ProductTypeId,_ProductDetailsId,_ProductUnitId,_ProductUnitPrice,_ProductQuantity);
+
+commit;
+
+END
+
+
+customedetails
+--------------
+
+CREATE PROCEDURE `sp_insert_CustomerDetails`(
+in _CustomerCode varchar(15),
+in _CustomerCityId int,
+in _CustomerStatusId int,
+in _CustomerTypeId int,
+in _CustomerName varchar(50),
+in _MobileNo varchar(10),
+in _Address varchar(100)
+)
+
+BEGIN
+
+insert into CustomerDetails(CustomerCode ,
+CustomerCityId,
+CustomerStatusId,
+CustomerTypeId,
+CustomerName,
+MobileNo,
+Address) values (_CustomerCode ,
+_CustomerCityId,
+_CustomerStatusId,
+_CustomerTypeId,
+_CustomerName,
+_MobileNo,
+_Address);
+commit;
+
+
+END
+
+
+TransactionHistory
+------------------
+
+CREATE PROCEDURE `sp_insert_TransactionHistory`(
+in _TransactionTypeId int,
+in _ProductTypeId int,
+in _ProductDetailsId int,
+in _ProductUnitId int,
+in _CustomerDetailsId int,
+in _TransactionQuantity int,
+in _TransactionAmount decimal
+)
+BEGIN
+
+
+insert into transactionhistory(TransactionTypeId,
+ProductTypeId,
+ProductDetailsId,
+ProductUnitId,
+CustomerDetailsId,
+TransactionDate,
+TransactionQuantity,
+TransactionAmount) 
+values(_TransactionTypeId,
+_ProductTypeId,
+_ProductDetailsId,
+_ProductUnitId,
+_CustomerDetailsId,
+NOW(),
+_TransactionQuantity,
+_TransactionAmount);
+
+
+commit;
+
+END
+
+Cities
+-------
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_Cities`(
+in _CityName varchar(50)
+)
+
+BEGIN
+
+
+insert into Cities(CityName) values(_CityName);
+
+commit;
+
+END

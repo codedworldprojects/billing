@@ -1,0 +1,97 @@
+create table producttype(ProductTypeId int primary key auto_increment,
+ProductType varchar(25)
+);
+
+
+
+
+create table productdetails(ProductDetailsId int primary key auto_increment,
+ProductTypeId int,
+ProductDetails varchar(100),
+FOREIGN KEY (ProductTypeId) REFERENCES producttype(ProductTypeId) ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
+create table productunit(ProductUnitId int primary key auto_increment,
+ProductUnit varchar(10)
+);
+
+
+
+create table productstock(ProductStockId int primary key auto_increment,
+ProductTypeId int,
+ProductDetailsId int,
+ProductUnitId  int,
+ProductUnitPrice  decimal,
+ProductQuantity  int,
+FOREIGN KEY (ProductTypeId) REFERENCES producttype(ProductTypeId) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (ProductDetailsId) REFERENCES productdetails(ProductDetailsId) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (ProductUnitId) REFERENCES productunit(ProductUnitId) ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
+
+create table CustomerType (CustomerTypeId int primary key auto_increment,
+CustomerType varchar(20)
+);
+
+
+
+create table Status (StatusId int primary key auto_increment,
+Status varchar(10)
+);
+
+
+
+create table Cities (CityId int primary key auto_increment,
+CityName varchar(50)
+);
+
+
+
+create table CustomerDetails(CustomerDetailsId int primary key auto_increment,
+ CustomerCode varchar(15), CustomerCityId int,
+CustomerStatusId int,
+CustomerTypeId int,
+CustomerName varchar(50),MobileNo varchar(10),
+Address varchar(100),
+FOREIGN KEY (CustomerCityId) REFERENCES cities(cityid) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (CustomerStatusId) REFERENCES status(statusid) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (CustomerTypeId) REFERENCES customertype(customertypeid) ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
+
+create table TransactionType(TransactionTypeId int primary key auto_increment,
+TransactionType varchar(10)
+);
+
+
+
+create table TransactionHistory(TransactionHistoryId bigint primary key auto_increment,
+TransactionTypeId int,
+ProductTypeId int,
+ProductDetailsId int,
+ProductUnitId int,
+CustomerDetailsId int,
+TransactionDate datetime,
+TransactionQuantity int,
+TransactionAmount decimal,
+FOREIGN KEY (TransactionTypeId) REFERENCES TransactionType(TransactionTypeId) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (ProductTypeId) REFERENCES producttype(ProductTypeId) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (ProductDetailsId) REFERENCES productdetails(ProductDetailsId) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (ProductUnitId) REFERENCES productunit(ProductUnitId) ON DELETE CASCADE
+    ON UPDATE CASCADE,
+FOREIGN KEY (CustomerDetailsId) REFERENCES CustomerDetails(CustomerDetailsId) ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
