@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Invoice Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Ignore this -->      
+  <script>
+  jQuery(function($) {
+    $(document.getElementById('fb-editor')).formBuilder();
+  });
+  </script>
+    </head>
+    <body>
+        <div id="fb-editor" class="container well well-lg">
+        <form id="rendered-form">
+            <div class="rendered-form">
+                <div class="fb-number form-group field-customercode">
+                    <label for="customercode" class="fb-number-label">customer code</label>
+                    <input type="number" class="form-control" name="customercode" id="customercode">
+                </div>
+                <div class="fb-text form-group field-customername">
+                    <label for="customername" class="fb-text-label">Customer name<span class="fb-required">*</span></label>
+                    <input type="text" placeholder="Name of customer" class="form-control" name="customername" id="customername" required="required" aria-required="true">
+                </div>
+                <div class="fb-number form-group field-customermobile">
+                    <label for="customermobile" class="fb-number-label">Customer Mobile number</label>
+                    <input type="number" placeholder="Enter customer mobile number" class="form-control" name="customermobile" id="customermobile">
+                </div>
+                <div class="fb-text form-group field-customeraddress"><label for="customeraddress" class="fb-text-label">Customer Address</label>
+                    <input type="text" class="form-control" name="customeraddress" id="customeraddress">
+                </div>
+                <div class="fb-number form-group field-customergstin">
+                    <label for="customergstin" class="fb-number-label">Customer GSTIN Number</label>
+                    <input type="number" class="form-control" name="customergstin" id="customergstin">
+                </div>
+                <div class="fb-autocomplete form-group field-productcode">
+                    <label for="productcode" class="fb-autocomplete-label">
+                        <span style="color: rgb(62, 63, 58); font-family: Roboto, " helvetica="" neue",="" helvetica,="" arial,="" sans-serif;="" font-size:="" 14px;="" font-style:="" normal;="" font-variant-ligatures:="" font-variant-caps:="" font-weight:="" 400;="" letter-spacing:="" orphans:="" 2;="" text-align:="" left;="" text-indent:="" 0px;="" text-transform:="" none;="" white-space:="" widows:="" word-spacing:="" -webkit-text-stroke-width:="" background-color:="" rgb(255,="" 255,="" 255);="" text-decoration-style:="" initial;="" text-decoration-color:="" display:="" inline="" !important;="" float:="" none;"="">product code</span>
+                        <span class="fb-required">*</span>
+                    </label>
+                    <input placeholder="Enter product code" class="form-control" id="productcode-input" required="required" aria-required="true" autocomplete="off">
+                </div>
+                <div class="fb-text form-group field-product-name">
+                    <label for="product-name" class="fb-text-label">product name</label>
+                    <input type="text" placeholder="Enter product name (if required)" class="form-control" name="product-name" id="product-name">
+                </div>
+                <div class="fb-text form-group field-hsncode">
+                    <label for="hsncode" class="fb-text-label">HSN Code</label>
+                    <input type="text" placeholder="Enter hsn code" class="form-control" name="hsncode" id="hsncode">
+                </div>
+                <div class="fb-number form-group field-quantity">
+                    <label for="quantity" class="fb-number-label">Quantity<span class="fb-required">*</span>
+                        <span class="tooltip-element" tooltip="Enter quantity in pieces">?</span>
+                    </label>
+                    <input type="number" placeholder="Quantity (pcs)" class="form-control" name="quantity" id="quantity" title="Enter quantity in pieces" required="required" aria-required="true">
+                </div>
+                <div class="fb-number form-group field-volume">
+                    <label for="volume" class="fb-number-label">Volume<span class="fb-required">*</span>
+                        <span class="tooltip-element" tooltip="liter/kg">?</span>
+                    </label>
+                    <input type="number" class="form-control" name="volume" id="volume" title="liter/kg" required="required" aria-required="true">
+                </div>
+                <div class="fb-number form-group field-rate">
+                    <label for="rate" class="fb-number-label">Rate<span class="fb-required">*</span></label>
+                    <input type="number" placeholder="rate per piece" class="form-control" name="rate" id="rate" required="required" aria-required="true">
+                </div>
+                <div class="fb-number form-group field-discount">
+                    <label for="discount" class="fb-number-label">Cash Discount</label>
+                    <input type="number" placeholder="cash discount" class="form-control" name="discount" id="discount">
+                </div>
+                <input type="submit">
+                <input type="reset">
+            </div>
+        </form>
+        </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="http://formbuilder.online/assets/js/form-builder.min.js"></script>
+    </body>
+</html>
