@@ -75,20 +75,20 @@
                                 <span class="fb-required">*</span>
                             </label>
                             <input type="text" placeholder="Name of customer" ng-model="customerName" class="form-control" name="customername" id="customerName"
-                                required="required" aria-required="true" onclick="this.value = ''">
+                                required="required" aria-required="true">
                         </div>
                         <div class="form-group col-lg-3">
                             <label for="customeraddress">Customer Address</label>
-                            <input type="text" class="form-control" name="customeraddress" ng-model="customerAddress" id="customeraddress" onclick="this.value = ''">
+                            <input type="text" class="form-control" name="customeraddress" ng-model="customerAddress" id="customeraddress">
                         </div>
                         <div class="form-group col-lg-3">
                             <label for="customermobile">Customer Mobile number</label>
                             <input type="tel" placeholder="Enter customer mobile number" ng-model="customerMobile" class="form-control" name="customermobile"
-                                id="customermobile" onclick="this.value = ''">
+                                id="customermobile">
                         </div>
                         <div class="form-group field-customergstin col-lg-3">
                             <label for="customergstin">Customer GSTIN Number</label>
-                            <input type="text" class="form-control" ng-model="customerGstin" name="customergstin" id="customergstin" onclick="this.value = ''">
+                            <input type="text" class="form-control" ng-model="customerGstin" name="customergstin" id="customergstin">
                         </div>
                         <hr class="col-lg-12">
                     </div>
@@ -138,41 +138,40 @@
                                 <td class="form-group">
 
                                     <input placeholder="Enter product code" class="form-control" ng-model="product.productCode" id="productcode-input" required="required"
-                                        aria-required="true" autocomplete="off" onclick="this.value = ''">
+                                        aria-required="true" autocomplete="off">
                                 </td>
                                 <td class="form-group">
 
                                     <input type="text" placeholder="Enter product name (if required)" ng-model="product.productName" class="form-control" name="product-name"
-                                        id="product-name" onclick="this.value = ''">
+                                        id="product-name">
                                 </td>
                                 <td class=" form-group">
 
-                                    <input type="text" placeholder="Enter hsn code" ng-model="product.hsnCode" class="form-control" name="hsncode" id="hsncode" onclick="this.value = ''">
+                                    <input type="text" placeholder="Enter hsn code" ng-model="product.hsnCode" class="form-control" name="hsncode" id="hsncode">
                                 </td>
                                 <td class="form-group">
 
                                     <input type="number" placeholder="" class="form-control" name="quantity" id="quantity" title="Enter quantity in pieces" required="required"
-                                        ng-model="product.quantity" aria-required="true" onclick="this.value = ''">
+                                        ng-model="product.quantity" aria-required="true" ng-change="quantityCalculation()">
                                 </td>
                                 <td class="form-group">
 
                                     <input type="number" placeholder="rate per piece" class="form-control" ng-model="product.rate" name="rate" id="rate" required="required"
-                                        aria-required="true" onclick="this.value = ''">
+                                        aria-required="true">
                                 </td>
                                 <td class="form-group">
 
                                     
-                                    <input type="number" placeholder="cash discount" class="form-control" ng-model="product.discount" name="discount" id="discount" onclick="this.value = ''">
+                                    <input type="number" placeholder="cash discount" class="form-control" ng-model="product.discount" name="discount" id="discount">
 
                                 </td>
                                 <td class="form-group ">
 
                                     <input type="number" class="form-control" name="volume" id="volume" ng-model="product.volume" title="liter/kg" required="required"
-                                        aria-required="true" onclick="this.value = ''">
+                                        aria-required="true">
                                 </td>
                                 <td class="form-group">
-
-                                    <div class="dropdown">
+                                    <!-- <div class="dropdown">
                                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                             <span ng-if="drums">drums</span>
                                             <span ng-if="cartons">cartons</span>
@@ -197,7 +196,15 @@
                                                 <input type="checkbox" class="form-check-input" ng-model="bags" ng-init="bags" /> Bags
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    <select class="form-control" ng-model="product.volumeType" ng-change="quantityCalculation()">
+                                        <option>---Select---</option>
+                                        <option value="drums">Drums</option>
+                                        <option value="cartons">Cartons</option>
+                                        <option value="buckets">Buckets</option>
+                                        <option value="liters">Liters</option>
+                                        <option value="bags">Bags</option>
+                                    </select>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-default" ng-click="removeProduct(product)"><b>X</b></button>
@@ -255,9 +262,9 @@
             <table class="table text-left" style="margin-bottom: 8rem">
                 <tr>
                     <th>S. No</th>
-                    <th>Product code
-                        <br>Product Discription</th>
-                    <th>Hsn Code</th>
+                    <th>Product code</th>
+                    <th>Product Description</th>
+                    <th>HSN Code</th>
                     <th>Qty</th>
                     <th>Rate</th>
                     <th>Volume</th>
@@ -265,26 +272,25 @@
                     <th>Cash Disc</th>
                     <th>Tot Disc</th>
                     <th>Taxable value</th>
-                    <th>CGST
-                        <br>Rate|Amt</th>
-                    <th>SGST
-                        <br>Rate|Amt</th>
+                    <th>CGST</th>
+                    <th>Rate|Amt</th>
+                    <th>SGST</th>
+                    <th>Rate|Amt</th>
 
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>{{productCode}}
-                        <br/>{{productName}}</td>
-                    <td>{{hsnCode}}</td>
-                    <td>{{quantity}}</td>
-                    <td>{{rate}}</td>
-                    <td>{{volume}}</td>
-                    <td>{{rate*quantity}}</td>
-                    <td>{{discount}}</td>
-                    <td>{{discount}}</td>
-                    <td>{{rate * quantity - discount}}</td>
-                    <td>{{((rate * quantity - discount)*14)/100}}</td>
-                    <td>{{((rate * quantity - discount)*14)/100}}</td>
+                <tr ng-repeat="product in model.products">
+                    <td>{{$index +1}}</td>
+                    <td>{{product.productCode}}</td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.hsnCode}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.rate}}</td>
+                    <td>{{product.volume}}</td>
+                    <td>{{product.rate*product.quantity}}</td>
+                    <td>{{product.discount}}</td>                    
+                    <td>{{(product.rate * product.quantity) * (product.discount/100)}}</td>
+                    <td>{{((product.rate * product.quantity - product.discount)*14)/100}}</td>
+                    <td>{{((product.rate * product.quantity - product.discount)*14)/100}}</td>
                 </tr>
             </table>
             <table class="table text-left border border-left-0 border-right-0 m-0 p-0">
@@ -314,17 +320,18 @@
                     <td>
                         <span></span>
                         <br/>
-                        <span ng-if="drums">{{volume}}</span>
+                        <span ng-if="model.quantity.drums > 0">{{model.quantity.drums}}</span>
                         <br/>
-                        <span ng-if="cartons">{{volume}}</span>
+                        <span ng-if="model.quantity.cartons > 0">{{model.quantity.cartons}}</span>
                         <br/>
-                        <span ng-if="buckets">{{volume}}</span>
+                        <span ng-if="model.quantity.buckets > 0">{{model.quantity.buckets}}</span>
                         <br/>
-                        <span ng-if="liters">{{volume}}</span>
+                        <span ng-if="model.quantity.liters > 0">{{model.quantity.liters}}</span>
                         <br/>
-                        <span ng-if="bags">{{volume}}</span>
+                        <span ng-if="model.quantity.bags > 0">{{model.quantity.bags}}</span>
                         <br/>
-                        <span>{{quantity}}</span>
+                        <br/>
+                        <span>{{model.quantity.total}}</span>
                         <br/>
                         <span>{{volume}}</span>
                     </td>
@@ -343,7 +350,7 @@
                                 </td>
                                 <td>
                                     <span>
-                                        <strong>{{rate*quantity}}</strong>
+                                        <strong>{{model.subTotal}}</strong>
                                     </span>
                                     <br/>
                                     <span>{{discount}}</span>
@@ -356,10 +363,10 @@
                         </table>
                         <table class="table-sm m-0 p-0">
                             <tr>
-                                <td>Tax</td>
-                                <td>Taxable Amt</td>
-                                <td>Tax Amt</td>
-                                <td>Tax %</td>
+                                <th>Tax</th>
+                                <th>Taxable Amt</th>
+                                <th>Tax Amt</th>
+                                <th>Tax %</th>
                             </tr>
                             <tr>
                                 <td>CGST</td>
